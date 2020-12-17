@@ -1,0 +1,40 @@
+{
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/mchorses-mclib/",
+    "1.12.2": {
+        "2.1.2": "This patch fix features some bug fixes that are required for the release of my new Chameleon mod.",
+        "2.1.1": "This tiny update that provides some changes for Blockbuster.",
+        "2.1": "This big update adds a lot of useful code (including WAV file parsing, loading and rendering), a handful of GUI element tweaks and new multi-skin features!",
+        "2.0.3": "This minor patch features enormous improvements to keyframe editing GUIs.",
+        "2.0.2": "This is a small quick patch which features a couple of neat GUI tweaks.",
+        "2.0.1": "This is a small quick patch.",
+        "2.0": "This enormous update drastically improves the GUI system that is used in my mods, as well as adding its own configuration system, and different APIs to make it easier to develop GUI stuff. It's also allows you to slightly personalize the GUI.",
+        "1.0.4": "This is a patch update which reworks file tree system, improves texture picker GUI and a couple of other neat features.",
+        "1.0.3": "A small patch update which is accompanied by Aperture 1.3.2 release.",
+        "1.0.2": "A small patch update that features a couple of fixes, and one small feature.",
+        "1.0.1": "Second update. Mostly provides new code for Blockbuster, Aperture and Metamorph.",
+        "1.0": "Initial release. This bad boy contains so much useful code."
+    },
+    "1.11.2": {
+        "1.0.4": "This is a patch update which reworks file tree system, improves texture picker GUI and a couple of other neat features.",
+        "1.0.3": "A small patch update which is accompanied by Aperture 1.3.2 release.",
+        "1.0.2": "A small patch update that features a couple of fixes, and one small feature.",
+        "1.0.1": "Second update. Mostly provides new code for Blockbuster, Aperture and Metamorph.",
+    	"1.0": "Initial release. This bad boy contains so much useful code."
+    },
+    "1.10.2": {
+        "1.0.4": "This is a patch update which reworks file tree system, improves texture picker GUI and a couple of other neat features.",
+        "1.0.3": "A small patch update which is accompanied by Aperture 1.3.2 release.",
+        "1.0.2": "A small patch update that features a couple of fixes, and one small feature.",
+        "1.0.1": "Second update. Mostly provides new code for Blockbuster, Aperture and Metamorph.",
+        "1.0": "Initial release. This bad boy contains so much useful code."
+    },
+    
+    "promos": {
+        "1.12.2-latest": "2.1.2",
+        "1.12.2-recommended": "2.1.2",
+        "1.10.2-latest": "1.0.4",
+        "1.10.2-recommended": "1.0.4",
+        "1.11.2-latest": "1.0.4",
+        "1.11.2-recommended": "1.0.4"
+    }
+}
