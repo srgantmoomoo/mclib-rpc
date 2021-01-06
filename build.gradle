@@ -1,6 +1,6 @@
-buildscript 
+buildscript
 {
-    repositories 
+    repositories
     {
         jcenter()
         maven {
@@ -8,40 +8,46 @@ buildscript
             url = "http://files.minecraftforge.net/maven"
         }
     }
-    
-    dependencies 
-    {
+
+    dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.3'
     }
 }
 
 apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'com.github.johnrengelman.shadow'
 
-if (project.hasProperty("dev")) 
+if (project.hasProperty("dev"))
 {
     version += "-dev" + dev
+}
+
+sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+compileJava {
+    sourceCompatibility = targetCompatibility = '1.8'
 }
 
 group = "mchorse.mclib"
 archivesBaseName = "mclib"
 sourceCompatibility = targetCompatibility = "1.8"
 
-compileJava 
+compileJava
 {
     sourceCompatibility = targetCompatibility = "1.8"
 }
 
 /* Minecraft configuration */
 
-minecraft 
+minecraft
 {
     version = "${mc_version}-${forge_version}"
     runDir = "run"
     mappings = snapshot
-    
+
     clientJvmArgs = ["-Xmx1G", "-Dfml.coreMods.load=" + coremodPath]
     serverJvmArgs = ["-Xmx1G"]
-    
+
     replace "%VERSION%", project.version
 }
 
@@ -49,6 +55,10 @@ jar {
    manifest {
        attributes 'FMLCorePlugin': coremodPath, 'FMLCorePluginContainsFMLMod': 'true'
    }
+}
+
+dependencies {
+ 	compile group: 'club.minnced', name: 'java-discord-rpc', version: '2.0.2'
 }
 
 processResources
@@ -60,20 +70,33 @@ processResources
 
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-                
+
         expand 'version':project.version, 'mcversion':project.minecraft.version
     }
-        
+
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
+}
+
+shadowJar {
+	dependencies {
+		include(dependency('club.minnced:java-discord-rpc:2.0.2'))
+	}
+}
+
+reobf {
+	shadowJar {
+		mappingType = 'SEARGE'
+		classpath = sourceSets.main.compileClasspath
+	}
 }
 
 /* Dev build */
 task deobfJar(type: Jar) {
     from sourceSets.main.output
     classifier = 'dev'
-    
+
     manifest {
         attributes 'FMLCorePlugin': coremodPath, 'FMLCorePluginContainsFMLMod': 'true'
     }
@@ -166,3 +189,5 @@ task compareLangFiles {
         }
     }
 }
+
+build.dependsOn(shadowJar)
