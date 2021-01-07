@@ -1,8 +1,8 @@
 package mchorse.mclib.rpc;
 
-import club.minnced.discord.rpc.DiscordEventHandlers;
-import club.minnced.discord.rpc.DiscordRPC;
-import club.minnced.discord.rpc.DiscordRichPresence;
+import mchorse.mclib.rpc.club.minnced.discord.rpc.DiscordEventHandlers;
+import mchorse.mclib.rpc.club.minnced.discord.rpc.DiscordRPC;
+import mchorse.mclib.rpc.club.minnced.discord.rpc.DiscordRichPresence;
 
 public class Discord {
 	

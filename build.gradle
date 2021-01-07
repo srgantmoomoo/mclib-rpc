@@ -57,8 +57,11 @@ jar {
    }
 }
 
+repositories {
+	mavenCentral()
+}
+
 dependencies {
- 	compile group: 'club.minnced', name: 'java-discord-rpc', version: '2.0.2'
 }
 
 processResources
@@ -81,15 +84,10 @@ processResources
 
 shadowJar {
 	dependencies {
-		include(dependency('club.minnced:java-discord-rpc:2.0.2'))
 	}
-}
-
-reobf {
-	shadowJar {
-		mappingType = 'SEARGE'
-		classpath = sourceSets.main.compileClasspath
-	}
+  exclude 'dummyThing'
+  exclude 'LICENSE.txt'
+  classifier = 'release'
 }
 
 /* Dev build */
